@@ -44,6 +44,22 @@ module.exports = {
                 test: /\.s[ac]ss$/,
                 use: getStyleLoaders('sass-loader')
             },
+            // handle images
+            {
+                test: /\.(jpe?g|png|gif|svg|webp)/,
+                type: 'asset',
+                parser: {
+                    dataUrlCondition: {
+                        // Convert images below 10kb to base64
+                        maxSize: 10 * 1024,
+                    }
+                }
+            },
+            // handle other
+            {
+                test: /\.(woff2?|ttf)/,
+                type: 'asset/resource'
+            }
         ]
     }
 }
