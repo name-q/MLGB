@@ -16,5 +16,10 @@
   "bugs": {
     "url": "https://github.com/name-q/MLGB/issues"
   },
-  "homepage": "https://github.com/name-q/MLGB#readme"
+  "homepage": "https://github.com/name-q/MLGB#readme",
+  "browserslist": [
+    "last 2 version",
+    "> 1%",
+    "not dead"
+  ]
 }
