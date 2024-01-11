@@ -1,3 +1,5 @@
+const path = require("path");
+const EslintWebpackPlugin = require("eslint-webpack-plugin");
 
 module.exports = {
 
@@ -44,7 +46,16 @@ module.exports = {
                 type: 'asset/resource'
             }
         ]
-    }
+    },
+
+    plugins: [
+        new EslintWebpackPlugin({
+            context: path.resolve(__dirname, "../src"),
+            exclude: "node_modules",
+            cache: true,
+            cacheLocation: path.resolve(__dirname, "../node_modules/.cache/.eslintcache"),
+        }),
+    ],
 }
 
 const getStyleLoaders = (pre) => [
