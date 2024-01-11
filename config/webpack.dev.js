@@ -1,21 +1,4 @@
 
-const getStyleLoaders = (pre) => [
-    'style-loader',
-    'css-loader',
-    {
-        // css compatible
-        loader: 'postcss-loader',
-        options: {
-            postcssOptions: {
-                plugins: [
-                    'postcss-preset-env'
-                ]
-            }
-        }
-    },
-    pre
-].filter(i => i)
-
 module.exports = {
 
     entry: './src/main.js',
@@ -50,8 +33,8 @@ module.exports = {
                 type: 'asset',
                 parser: {
                     dataUrlCondition: {
-                        // Convert images below 10kb to base64
-                        maxSize: 10 * 1024,
+                        // Convert images below 20kb to base64
+                        maxSize: 20 * 1024,
                     }
                 }
             },
@@ -63,3 +46,20 @@ module.exports = {
         ]
     }
 }
+
+const getStyleLoaders = (pre) => [
+    'style-loader',
+    'css-loader',
+    {
+        // css compatible
+        loader: 'postcss-loader',
+        options: {
+            postcssOptions: {
+                plugins: [
+                    'postcss-preset-env'
+                ]
+            }
+        }
+    },
+    pre
+].filter(i => i)
