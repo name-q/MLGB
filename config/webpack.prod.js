@@ -7,11 +7,11 @@ module.exports = {
     entry: './src/main.js',
 
     output: {
-        path: undefined,
+        path: path.resolve(__dirname, "../dist"),
         filename: 'static/js/[name].js',
-        // chunkFilename: 'statuc/js/[name].chunk.js',
-        // assetModuleFilename: 'static/media/[hash:10][ext][query]',
-        // clean: true,
+        chunkFilename: 'statuc/js/[name].chunk.js',
+        assetModuleFilename: 'static/media/[hash:10][ext][query]',
+        clean: true,
     },
 
     module: {
@@ -93,21 +93,22 @@ module.exports = {
         new EslintWebpackPlugin({
             context: path.resolve(__dirname, "../src"),
             exclude: "node_modules",
-            // cache: true,
-            // cacheLocation: path.resolve(__dirname, "../node_modules/.cache/.eslintcache"),
+            cache: true,
+            cacheLocation: path.resolve(__dirname, "../node_modules/.cache/.eslintcache"),
         }),
         new HtmlWebpackPlugin({
             template: path.resolve(__dirname, "public/index.html"),
         }),
     ],
 
-    devServer: {
-        host: "localhost",
-        port: "3000",
-        open: true,
-    },
+    // devServer: {
+    //     host: "localhost",
+    //     port: "3000",
+    //     open: true,
+    // },
 
-    mode: "development",
+    // mode: "development",
+    mode: "production",
 }
 
 const getStyleLoaders = (pre) => [
